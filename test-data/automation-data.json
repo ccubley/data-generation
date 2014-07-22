@@ -1,0 +1,318 @@
+{
+  "patients": {
+    "patient_id": {
+      "$generator": {
+      	"type": "number-sequence",
+      	"start": {
+      		""
+      	}
+      }
+    },
+
+    "mrn": {
+      "type": "string",
+      "required": true
+    },
+
+    "dob": {
+      "type": "date",
+      "required": false
+    },
+
+    "gender": {
+      "type": "int",
+      "required": false,
+      "values": {
+        "1": "Male",
+        "2": "Female",
+        "3": "Ambiguous"
+      }
+    },
+
+    "last_name": { 
+      "type": "string",
+      "required": false
+    },
+
+    "first_name": {
+      "type": "string",
+      "required": false
+    },
+
+    "middle_name": {
+      "type": "string",
+      "required": false
+    },
+
+    "race": {
+      "type": "int",
+      "required": false,
+      "values": {
+        "4": "African American",
+        "5": "Hispanic",
+        "6": "Caucasian/European Non-Hispanic",
+        "7": "Asian/Indian/Pacific Islander",
+        "8": "American Indian/Indigenous",
+        "9": "Other/Mixed",
+        "10": "Unspecified"
+      }
+    }
+  },
+
+  "encounters": {
+    "encounter_id": {
+      "type": "string",
+      "required": true
+    },
+
+    "patient_id": {
+      "type": "string",
+      "required": true
+    },
+
+    "admission_datetime": {
+      "type": "datetime",
+      "required": true
+    },
+
+    "discharge_datetime": {
+      "type": "datetime",
+      "required": false
+    }
+  },
+
+  "ccu_encounters": {
+    "ccu_encounter_id": {
+      "type":  "string",
+      "required": true
+    },
+
+    "encounter_id": {
+      "type": "string",
+      "required": true
+    },
+
+    "admission_datetime": {
+      "type": "datetime",
+      "required": true
+    },
+
+    "med_discharge_datetime": {
+      "type": "datetime",
+      "required": false
+    },
+
+    "phys_discharge_datetime": {
+      "type": "datetime",
+      "required": false
+    },
+
+    "origin": {
+      "type": "int",
+      "required": false,
+      "values": {
+        "285": "Emergency Department",
+        "286": "General Care Floor",
+        "287": "Step-down Unit/Intermediate Care Unit/Telemetry Unit",
+        "288": "Recovery Room (PACU)",
+        "289": "Operating Room (Direct to ICU)",
+        "290": "Inpatient Procedure Suite",
+        "291": "Outpatient Procedure Suite",
+        "292": "Another ICU in this Hospital",
+        "293": "Transitional Care/Skilled Nursing/Chronic Care Facility",
+        "294": "Another Hospital's Emergency Department",
+        "295": "Another Hospital's General Care Floor",
+        "296": "Another Hospital's Step-down Unit/Intermediate Care Unit/Telemetry Unit",
+        "297": "Another Hospital's ICU",
+        "298": "Pulmonary Rehab Center",
+        "299": "Physical Rehab Center",
+        "300": "Psychiatric/Substance Abuse/Chemical Dependence Rehab Center",
+        "301": "Physician's Office/Clinic",
+        "302": "Home",
+        "303": "Other",
+        "304": "NICU",
+        "305": "Another Hospital's OR",
+        "580": "Delivery Room",
+        "656": "Another hospital's cath lab",
+        "657": "Another Hospital's dedicated home ventilator unit",
+        "658": "Another hospital’s Telemetry Unit",
+        "659": "Cath lab",
+        "660": "Dedicated technology dependent unit (transitional/progressive care unit)",
+        "661": "Hospice",
+        "662": "Telemetry Unit",
+        "676": "Step-Down Unit/Intermediate Care Unit",
+        "677": "Inpatient Procedure Suite (not cath lab)",
+        "678": "Another ICU in this hospital (except NICU)",
+        "679": "Another hospital's Step-Down Unit/Intermediate Care Unit",
+        "680": "NICU (in this hospital)",
+        "681": "Delivery Room (including delivery room in another hospital)"
+      }
+    },
+
+    "transport": {
+      "type": "int",
+      "required": false,
+      "values": {
+        "219": "Our PICU lead transport team",
+        "220": "Our institution lead transport team",
+        "221": "Another hospital's PICU or institution lead transport team",
+        "222": "Local/Community EMS",
+        "223": "Other",
+        "573": "Patient not transported by a professional transport team",
+        "574": "Transport team unknown"
+      }
+    },
+
+    "transport_vehicle": {
+      "type": "int",
+      "required": false,
+      "values": {
+        "224": "Ambulance/Rescue",
+        "225": "Helicopter",
+        "226": "Fixed Wing Aircraft",
+        "227": "Other",
+        "427": "Private Vehicle",
+        "575": "Patient not transported by a professional transport team for this ICU episode",
+        "576": "Transport vehicle unknown"
+      }
+    },
+
+    "outcome": {
+      "type": "int",
+      "required": false,
+      "values": {
+        "432": "Survived",
+        "433": "Died"
+      }
+    },
+
+    "disposition": {
+      "type": "int",
+      "required": false,
+      "values": {
+        "102": "General Care Floor",
+        "105": "Operating Room",
+        "106": "Pulmonary Rehab Center",
+        "107": "Physical Rehab Center",
+        "109": "Another Hospital's ICU",
+        "112": "Hospice",
+        "113": "Left Against Medical Advice - AMA",
+        "114": "Home",
+        "428": "Cardiac Unit",
+        "429": "Neuro ICU",
+        "430": "NICU/Neonatal ICU",
+        "431": "Nursery",
+        "664": "Another hospital's cath lab",
+        "665": "Another hospital's dedicated home ventilator unit",
+        "666": "Another hospital's General Care Floor",
+        "667": "Another hospital's OR",
+        "668": "Another hospital’s Telemetry Unit",
+        "669": "Cath lab",
+        "670": "Dedicated technology dependent unit (transitional/progressive care unit)",
+        "671": "Inpatient Procedure Suite (not cath lab)",
+        "672": "NICU (in this hospital)",
+        "673": "Outpatient Procedure Suite",
+        "674": "Recovery Room (PACU)",
+        "675": "Telemetry Unit",
+        "682": "Step-Down Unit/Intermediate Care Unit",
+        "683": "Another ICU in Current Hospital (except NICU)",
+        "684": "Psychiatric/Substance Abuse/Chemical Dependence Rehab Center",
+        "685": "Another hospital's Step-Down Unit/Intermediate Care Unit",
+        "686": "Transitional Care/Skilled Nursing Facility/Chronic Care Facility",
+        "115": "Morgue",
+        "116": "Medical Examiner",
+        "663": "Transferred out of ICU for DCD",
+        "117": "Other"
+      }
+    }
+  },
+
+  "events": {
+    "event_id": {
+      "type": "string",
+      "required": true
+    },
+
+    "encounter_id": {
+      "type": "string",
+      "required": true
+    },
+
+    "event_name": {
+      "type": "string",
+      "required": false
+    },
+
+    "event_code": {
+      "type": "int",
+      "required": true,
+      "values": {
+        "1": "Heart Rate",
+        "2": "Respiratory Rate",
+        "3": "Base Excess Arterial",
+        "4": "Base Excess Capillary",
+        "5": "Base Excess Venous",
+        "6": "Height",
+        "7": "Temperature",
+        "8": "Non-Invasive Diastolic Blood Pressure",
+        "9": "Invasive Diastolic Blood Pressure",
+        "10": "Invasive Systolic Blood Pressure",
+        "11": "Non-Invasive Systolic Blood Pressure",
+        "12": "Segmented Neutrophils %",
+        "13": "Hemoglobin WB",
+        "14": "pH Arterial",
+        "15": "pH Capillary",
+        "16": "pH Venous",
+        "17": "Promyelocytes %",
+        "18": "Myelocytes %",
+        "19": "PaO2 Arterial",
+        "20": "PCO2 Arterial",
+        "21": "PCO2 Capillary",
+        "22": "PCO2 Venous",
+        "23": "PT",
+        "24": "PTT",
+        "25": "Weight",
+        "26": "Neutrophils %",
+        "27": "Myeloblasts %",
+        "28": "Bicarbonate",
+        "29": "Potassium Whole Blood",
+        "30": "Sodium Whole Blood",
+        "31": "Glucose Whole Blood",
+        "32": "Potassium Serum",
+        "33": "Sodium Serum",
+        "34": "Glucose Serum",
+        "35": "Platelet Count",
+        "36": "Metamyelocytes %",
+        "37": "Bands %",
+        "38": "WBC",
+        "39": "Total Calcium",
+        "40": "Ionized Calcium",
+        "41": "Albumin",
+        "42": "Blood Urea Nitrogen",
+        "43": "Glasgow Coma Scale Score",
+        "44": "Creatinine",
+        "45": "Total Bilirubin",
+        "46": "ABG FiO2",
+        "47": "VBG FiO2",
+        "48": "CBG FiO2",
+        "49": "MVBG FiO2",
+        "50": "AST"
+      }
+    },
+
+    "event_datetime": {
+      "type": "datetime",
+      "required": true
+    },
+
+    "value": {
+      "type": "float",
+      "required": true
+    },
+
+    "units": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
